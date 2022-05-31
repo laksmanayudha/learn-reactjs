@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Registrasi</title>
+</head>
+<body>
+    <hr>
+    <h1>Registrasi Akun Baru!</h1>
+    <h3>Isilah form dibawah ini</h3>
+    <form action="" method="POST">
+        <div class="input">
+            <label for="firstName"> First Name:</label><br>
+            <input type="text" name="firstName" id="firstName">
+        </div>
+        <div class="input">
+            <label for="lastName"> Last Name:</label><br>
+            <input type="text" name="lastName" id="lastName">
+        </div>
+        <div class="input">
+            <label> Gender:</label><br>
+            <input type="radio" name="gender" value="Male" checked> Male
+            <input type="radio" name="gender" value="Female"> Female
+            <input type="radio" name="gender" value="Other"> Other
+        </div>
+        <div class="input">
+            <label for="nationality"> Nationality:</label><br>
+            <select name="nationality" id="nationality">
+                <option value="Indonesian">Indonesian</option>
+                <option value="Indian">Indian</option>
+                <option value="American">American</option>
+                <option value="Chinese">Chinese</option>
+            </select>
+        </div>
+        <div class="input">
+            <label for="study"> Sedang Fokus Belajar:</label><br>
+            <select name="study" id="study">
+                <option value="Reactjs">Reactjs</option>
+                <option value="React Native">React Native</option>
+                <option value="Python">Python</option>
+                <option value="JavaScript">JavaScript</option>
+            </select>
+        </div>
+        <div class="input">
+            <label> Language Spoken:</label><br>
+            <input type="radio" name="language" value="Indonesia" checked> Indonesia
+            <input type="radio" name="language" value="English"> English
+            <input type="radio" name="language" value="Chinese"> Chinese
+        </div>
+        <div class="input">
+            <label for="desc">Deskripsi Diri Saya</label><br>
+            <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
+        </div>
+        <button type="submit" name="register">register</button>
+    </form>
+</body>
+</html>
