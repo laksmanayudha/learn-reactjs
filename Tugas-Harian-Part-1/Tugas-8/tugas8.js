@@ -116,7 +116,7 @@ console.log(dataBuku);
 // soal 7
 const tambahDataFilm = (...params) => {
     let [nama, durasi, genre, tahun] = params;
-    return dataFilm.push({nama, durasi, genre, tahun});
+    dataFilm.push({nama, durasi, genre, tahun});
 }
 
 let dataFilm = []
