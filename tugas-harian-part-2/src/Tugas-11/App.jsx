@@ -1,7 +1,9 @@
+import List from "./List";
+
 const App = () => {
     return(
-        <div className="App">
-
+        <div className="app">
+            <List />
         </div>
     );
 }

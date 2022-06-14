@@ -1,4 +1,4 @@
-import Tugas10 from './Tugas-10/App'
+// import Tugas10 from './Tugas-10/App'
 import Tugas11 from './Tugas-11/App'
 
 function App() {
