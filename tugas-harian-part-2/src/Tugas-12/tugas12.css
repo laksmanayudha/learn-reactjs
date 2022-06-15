@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.app{
+    max-width: 1000px;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 2em;
+    text-align: center;
+    padding: 1em 1.6em;
+    box-shadow: 0 3px 10px rgba(166, 166, 166, 0.5);
+    /* border: 1px solid black; */
+}
+
+form{
+    border: 1px solid black;
+    padding: 1em;
+}
+
+label{
+    font-weight: bold;
+}
+
+.input-item{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+input{
+    width: 60%;
+    padding: 0.5em;
+}
+
+.buttonSubmit{
+    justify-content: flex-end;
+}
+
+table{
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+tr{
+    border-bottom: 1px solid rgb(209, 209, 209);
+}
+
+th, td{
+    padding: 0.4em;
+}
+
+.action button{
+    margin-left: 0.5em;
+}
+
+.edit, .submit{
+    background-color: rgb(58, 58, 255);
+}
+
+.edit:hover, .submit:hover{
+    background-color: rgb(40, 40, 185);
+}
+
+/* .input-item:hover .submit{
+    background-color: red;
+} */
+
+.delete{
+    background-color: rgb(255, 41, 41);
+}
+
+.delete:hover{
+    background-color: rgb(205, 37, 37);
+}
+
+.btn{
+    border: none;
+    padding: 0.5em 1.3em;
+    color: white;
+    border-radius: 10px;
+}
+
+h1{
+    margin: .5em 0;
+}
