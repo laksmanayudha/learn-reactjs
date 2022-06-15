@@ -16,43 +16,47 @@ const ListAxios = () => {
         }
 
         if(fetchStatus){
+            console.log('fetch data') // sekali fetch data dengan if
             fetchData();
             setFetchStatus(false);
         }
-        
+
+        // fetchData(); // bisa gini aja tanpa if diatas, cuma nanti pas ngesetfetchstatusnya di tempat lain bisa berubah atau enggaknya, true still true
+        // console.log('fetch data'); // 2x fetch data
+        // fetchData();
+        // setFetchStatus(false);
     }, [fetchStatus]);
 
     const handleChange = (event) => {
         setMahasiswa({...mahasiswa, [event.target.name]: event.target.value})
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         if(curerntId === null){
-            axios.post(` https://backendexample.sanbercloud.com/api/student-scores`, mahasiswa)
-             .then((res) => {
-                setFetchStatus(true);
-             })
-             .catch((err) => {
-                console.log(err)
-             })
+            await axios.post(` https://backendexample.sanbercloud.com/api/student-scores`, mahasiswa);
         }else{
-
+            await axios.put(` https://backendexample.sanbercloud.com/api/student-scores/${curerntId}`, mahasiswa);
+            setCurrentId(null);
         }
+        setFetchStatus(true);
         setMahasiswa({name: "", course:"", score:0})
     }
-    // const handleDelete = (event) => {
-    //     let index = parseInt(event.target.value);
-    //     let newDaftarBuah = daftarBuah.filter((item, i) => {
-    //         return i !== index;
-    //     });
-    //     setDaftarBuah(newDaftarBuah);
-    // }
-    // const handleEdit = (event) => {
-    //     let index = parseInt(event.target.value);
-    //     setItem(daftarBuah[index]);
-    //     setCurrentIndex(index);
-    // }
+    const handleDelete = async (event) => {
+        let mhsId = event.target.value;
+        // axios.delete(`https://backendexample.sanbercloud.com/api/student-scores/${mhsId}`)
+        //  .then((res) => {
+        //     setFetchStatus(true)
+        //  })
+        await axios.delete(`https://backendexample.sanbercloud.com/api/student-scores/${mhsId}`)
+        setFetchStatus(true);
+    }
+    const handleEdit = async (event) => {
+        let mhsId = event.target.value;
+        let { data } = await axios.get(`https://backendexample.sanbercloud.com/api/student-scores/${mhsId}`);
+        setMahasiswa(data);
+        setCurrentId(data.id)
+    }
 
     const indexOf = (score) => {
         if (score >= 80){
@@ -94,8 +98,8 @@ const ListAxios = () => {
                                         <td>{item.score}</td>
                                         <td>{indexOf(item.score)}</td>
                                         <td className="action">
-                                            <button value={item.id} onClick={() => {}} className="btn edit">Edit</button>
-                                            <button value={item.id} onClick={() => {}} className="btn delete">Delete</button>
+                                            <button value={item.id} onClick={handleEdit} className="btn edit">Edit</button>
+                                            <button value={item.id} onClick={handleDelete} className="btn delete">Delete</button>
                                         </td>
                                     </tr>
                                 )
