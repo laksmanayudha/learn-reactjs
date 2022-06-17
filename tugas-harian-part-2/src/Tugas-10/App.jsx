@@ -12,7 +12,7 @@ function App() {
     <div className='container'>
       <img src={logoSanbercode} alt="logo"></img>
       <div className="title">
-        <h1>THINGS TO DO</h1>
+        <h1 className='thingsToDo'>THINGS TO DO</h1>
         <p>during bootcamp in sanbercode</p>
       </div>
       <div className="check-list">

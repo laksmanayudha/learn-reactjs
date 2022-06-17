@@ -1,6 +1,6 @@
 function ButtonComponent(){
     return(
-        <button type='button'>SEND</button>
+        <button className="button" type='button'>SEND</button>
     );
 }
 
