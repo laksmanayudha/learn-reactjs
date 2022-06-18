@@ -2,7 +2,8 @@
 // import Tugas11 from './Tugas-11/App'
 // import Tugas12 from "./Tugas-12/App"
 // import Tugas13 from "./Tugas-13/App";
-import Tugas14 from "./Tugas-14/Routes";
+// import Tugas14 from "./Tugas-14/Routes";
+import Tugas15 from "./Tugas-15/Routes";
 
 function App() {
   return(
@@ -10,7 +11,8 @@ function App() {
     // <Tugas11 />
     // <Tugas12 />
     // <Tugas13 />
-    <Tugas14 />
+    // <Tugas14 />
+    <Tugas15 />
   )
 }
 
