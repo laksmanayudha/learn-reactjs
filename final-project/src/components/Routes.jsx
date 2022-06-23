@@ -1,27 +1,32 @@
 import {
     BrowserRouter as Router,
-    Link,
     Switch,
     Route
 } from "react-router-dom";
+import LandingContent from "./LandingContent";
+import LayoutLanding from "./LayoutLanding";
+import AuthContent from "./AuthContent";
+import LoginForm from "./LoginForm";
+import SignupForm from "./SignupForm";
 
 const Routes = () => {
     return(
         <Router>
-            <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/login">Login</Link></li>
-            </ul>
-            
             <Switch>
                 <Route exact path="/">
-                    <h1>hello</h1>
+                    <LayoutLanding>
+                        <LandingContent />
+                    </LayoutLanding>
                 </Route>
-                <Route path="/login">
-                    <h1>Login</h1>
+                <Route exact path="/login">
+                    <LayoutLanding>
+                        <AuthContent left={<LoginForm />} />
+                    </LayoutLanding>
                 </Route>
-                <Route>
-                    <h1>hehe</h1>
+                <Route exact path="/signup">
+                    <LayoutLanding>
+                        <AuthContent right={<SignupForm />} />
+                    </LayoutLanding>
                 </Route>
             </Switch>
         </Router>
