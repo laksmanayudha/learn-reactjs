@@ -3,8 +3,8 @@ import { Button } from "./Button";
 
 const ChangePassword = (props) => {
     return (
-        <div className="p-10 container bg-white rounded h-full">
-            <h1 className="font-bold font-normal text-4xl">Change Password</h1>
+        <div className="p-10 container bg-white rounded">
+            <h1 className="font-bold font-normal text-3xl">Change Password</h1>
             <div className="p-10 w-3/4 mx-auto">
                 
                 <form >

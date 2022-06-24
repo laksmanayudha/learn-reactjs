@@ -5,7 +5,7 @@ import { InputFormData2, SelectForm } from "./InputForm";
 
 const ListJobVacancy = () => {
     return(
-    <div className="container bg-white rounded h-full">
+    <div className="bg-white rounded">
         <div className="p-4 w-full">
             <div className="flex flex-col md:flex-row justify-start items-center">
                 <div className="w-full md:w-4/12">

@@ -15,6 +15,8 @@ import Profile from "./Profile";
 import NotFound from "./NotFound";
 import ChangePassword from "./ChangePassowrd";
 import ListJobVacancy from "./ListJobVacancy";
+import JobForm from "./JobForm";
+import DetailJob from "./DetailJob";
 
 const Routes = () => {
     return(
@@ -40,6 +42,11 @@ const Routes = () => {
                         <SearchJob />
                     </LayoutLanding>
                 </Route>
+                <Route exact path="/job-vacancy/detail">
+                    <LayoutLanding>
+                        <DetailJob />
+                    </LayoutLanding>
+                </Route>
                 <Route exact path="/dashboard">
                     <LayoutDashboard>
                         <Dashboard />
@@ -58,6 +65,11 @@ const Routes = () => {
                 <Route exact path="/dashboard/list-job-vacancy">
                     <LayoutDashboard>
                         <ListJobVacancy />
+                    </LayoutDashboard>
+                </Route>
+                <Route exact path="/dashboard/list-job-vacancy/form">
+                    <LayoutDashboard>
+                        <JobForm />
                     </LayoutDashboard>
                 </Route>
                 <Route>
