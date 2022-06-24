@@ -1,3 +1,6 @@
+import { Button } from "./Button";
+import { InputFormData2 } from "./InputForm"
+
 const FilterForm = () => {
     return (
         <div className="bg-white rounded-lg shadow sm:max-w-md sm:w-full sm:mx-auto sm:overflow-hidden">
@@ -15,28 +18,10 @@ const FilterForm = () => {
                 </div>
                 <div className="mt-6">
                 <div className="w-full space-y-6">
-                    <div className="w-full">
-                        <div className=" relative ">
-                            <input type="text" id="search-form-price" className=" rounded-lg border-inherit flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your price" />
-                        </div>
-                    </div>
-                    <div className="w-full">
-                        <div className=" relative ">
-                            <input type="text" id="search-form-location" className=" rounded-lg border-inherit flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your location" />
-                        </div>
-                    </div>
-                    <div className="w-full">
-                        <div className=" relative ">
-                            <input type="text" id="search-form-name" className=" rounded-lg border-inherit flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your name" />
-                        </div>
-                    </div>
-                    <div>
-                        <span className="block w-full rounded-md shadow-sm">
-                            <button type="button" className="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                            Find
-                            </button>
-                        </span>
-                    </div>
+                    <InputFormData2 type="text" name="company_city" placeholder="Company City" />
+                    <InputFormData2 type="text" name="company_name" placeholder="Company Name" />
+                    <InputFormData2 type="text" name="salary_min" placeholder="Minimal Salary" />
+                    <Button name="Find"/>
                 </div>
                 </div>
             </div>

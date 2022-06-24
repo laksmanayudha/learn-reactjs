@@ -11,10 +11,10 @@ const Sidebar = () => {
                 </div>
                 <nav className="mt-6">
                     <div>
-                        <SidebarItem name="Dashboard" icon={<HomeIcon />} />
-                        <SidebarItem name="Profile" icon={<ProfileIcon />} />
-                        <SidebarItem name="Company Lists" icon={<TableIcon />} />
-                        <SidebarItem name="Change Password" icon={<PasswordIcon />} />
+                        <SidebarItem name="Dashboard" icon={<HomeIcon />} to="/dashboard"/>
+                        <SidebarItem name="Profile" icon={<ProfileIcon />} to="/dashboard/profile"/>
+                        <SidebarItem name="Job Vacancy" icon={<TableIcon />} to="/dashboard/list-job-vacancy" />
+                        <SidebarItem name="Change Password" icon={<PasswordIcon />} to="/dashboard/change-password"/>
                     </div>
                 </nav>
             </div>

@@ -10,6 +10,11 @@ import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import SearchJob from "./SearchJob";
 import LayoutDashboard from "./LayoutDashboard";
+import Dashboard from "./Dashboard";
+import Profile from "./Profile";
+import NotFound from "./NotFound";
+import ChangePassword from "./ChangePassowrd";
+import ListJobVacancy from "./ListJobVacancy";
 
 const Routes = () => {
     return(
@@ -37,7 +42,26 @@ const Routes = () => {
                 </Route>
                 <Route exact path="/dashboard">
                     <LayoutDashboard>
+                        <Dashboard />
                     </LayoutDashboard>
+                </Route>
+                <Route exact path="/dashboard/profile">
+                    <LayoutDashboard>
+                        <Profile />
+                    </LayoutDashboard>
+                </Route>
+                <Route exact path="/dashboard/change-password">
+                    <LayoutDashboard>
+                        <ChangePassword />
+                    </LayoutDashboard>
+                </Route>
+                <Route exact path="/dashboard/list-job-vacancy">
+                    <LayoutDashboard>
+                        <ListJobVacancy />
+                    </LayoutDashboard>
+                </Route>
+                <Route>
+                    <NotFound />
                 </Route>
             </Switch>
         </Router>
