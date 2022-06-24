@@ -9,6 +9,7 @@ import AuthContent from "./AuthContent";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import SearchJob from "./SearchJob";
+import LayoutDashboard from "./LayoutDashboard";
 
 const Routes = () => {
     return(
@@ -35,9 +36,8 @@ const Routes = () => {
                     </LayoutLanding>
                 </Route>
                 <Route exact path="/dashboard">
-                    <LayoutLanding>
-                        <SearchJob />
-                    </LayoutLanding>
+                    <LayoutDashboard>
+                    </LayoutDashboard>
                 </Route>
             </Switch>
         </Router>

@@ -30,7 +30,7 @@ const Navbar = () => {
                                 <NavbarMenuItem name="Sign up" to="/signup" activemenu="3"/>
                             </li>
                             <li>
-                                <NavbarMenuItem name="Login" to="/login" activemenu="4" isButton/>
+                                <NavbarMenuItem name="Login" to="/login" activemenu="4" isButton />
                             </li>
                         </ul>
                         </div>
