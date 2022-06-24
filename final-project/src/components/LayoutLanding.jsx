@@ -8,6 +8,7 @@ const LayoutLanding = (props) => {
         <div className="content px-10">
             {props.children}
         </div>
+        <hr className="my-7" />
         <Footer />
         </>
     )

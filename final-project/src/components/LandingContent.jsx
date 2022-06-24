@@ -16,7 +16,6 @@ const LandingContent = () => {
             <section>
                 <FeaturesTwo />
             </section>
-            <hr className="my-7" />
         </>
     )
 }

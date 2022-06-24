@@ -8,6 +8,7 @@ import LayoutLanding from "./LayoutLanding";
 import AuthContent from "./AuthContent";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
+import SearchJob from "./SearchJob";
 
 const Routes = () => {
     return(
@@ -26,6 +27,16 @@ const Routes = () => {
                 <Route exact path="/signup">
                     <LayoutLanding>
                         <AuthContent right={<SignupForm />} />
+                    </LayoutLanding>
+                </Route>
+                <Route exact path="/job-vacancy">
+                    <LayoutLanding>
+                        <SearchJob />
+                    </LayoutLanding>
+                </Route>
+                <Route exact path="/dashboard">
+                    <LayoutLanding>
+                        <SearchJob />
                     </LayoutLanding>
                 </Route>
             </Switch>
