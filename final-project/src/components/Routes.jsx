@@ -17,7 +17,12 @@ import ChangePassword from "./ChangePassowrd";
 import ListJobVacancy from "./ListJobVacancy";
 import JobForm from "./JobForm";
 import DetailJob from "./DetailJob";
+import { AuthProvider } from "./AuthProvider";
 
+// state menyimpan data sementara, jika terjadi update, kemudian refersh page, maka state akan reset kembali
+// kecuali tangkap / isi data pada state kembali di hooks (useEffect)
+// context/provider yang menajdi beda parent pada komponent yang berbeda, value yang sama masih dapat digunakan pada component2 yang menjadi childnya walaupun di create/update pada component child yang berbeda
+// nilai/state pada context akan tereset jiga mengakses komponen lain yang tidak menggunakan context yang sama 
 const Routes = () => {
     return(
         <Router>
@@ -29,12 +34,16 @@ const Routes = () => {
                 </Route>
                 <Route exact path="/login">
                     <LayoutLanding>
-                        <AuthContent left={<LoginForm />} />
+                        <AuthProvider>
+                            <AuthContent left={<LoginForm />} />
+                        </AuthProvider>
                     </LayoutLanding>
                 </Route>
                 <Route exact path="/signup">
                     <LayoutLanding>
-                        <AuthContent right={<SignupForm />} />
+                        <AuthProvider>
+                            <AuthContent right={<SignupForm />} />
+                        </AuthProvider>
                     </LayoutLanding>
                 </Route>
                 <Route exact path="/job-vacancy">

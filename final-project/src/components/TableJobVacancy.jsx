@@ -1,4 +1,4 @@
-import { Button, ButtonNotFull, ButtonNotFullDanger } from "./Button";
+import { ButtonNotFull, ButtonNotFullDanger } from "./Button";
 import { DeleteIcon, EditIcon, SortIcon } from "./SVGIcons";
 
 const TableJobVacancy = () => {

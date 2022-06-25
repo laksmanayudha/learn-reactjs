@@ -9,5 +9,4 @@ const AuthContent = (props) => {
     </div>
     )
 }
-
 export default AuthContent;
