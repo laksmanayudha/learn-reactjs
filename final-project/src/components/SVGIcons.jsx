@@ -145,3 +145,56 @@ export const SortIcon = (props) => {
     </svg>
     )
 }
+
+export const DashboardIcon = () => {
+    return(
+        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-layout-dashboard" width={24} height={24} viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M4 4h6v8h-6z" />
+        <path d="M4 16h6v4h-6z" />
+        <path d="M14 12h6v8h-6z" />
+        <path d="M14 4h6v4h-6z" />
+        </svg>
+
+
+    )
+}
+
+export const ListIcon = () => {
+    return(
+        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-border-all" width={24} height={24} viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <rect x={4} y={4} width={16} height={16} rx={2} />
+        <line x1={4} y1={12} x2={20} y2={12} />
+        <line x1={12} y1={4} x2={12} y2={20} />
+        </svg>
+
+
+    )
+}
+export const JobIcon = () => {
+    return(
+        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-building-skyscraper" width={24} height={24} viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <line x1={3} y1={21} x2={21} y2={21} />
+        <path d="M5 21v-14l8 -4v18" />
+        <path d="M19 21v-10l-6 -4" />
+        <line x1={9} y1={9} x2={9} y2="9.01" />
+        <line x1={9} y1={12} x2={9} y2="12.01" />
+        <line x1={9} y1={15} x2={9} y2="15.01" />
+        <line x1={9} y1={18} x2={9} y2="18.01" />
+        </svg>
+    )
+}
+
+export const LockChange = () => {
+    return(
+        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-cloud-lock" width={24} height={24} viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M19 18a3.5 3.5 0 0 0 0 -7h-1c.397 -1.768 -.285 -3.593 -1.788 -4.787c-1.503 -1.193 -3.6 -1.575 -5.5 -1s-3.315 2.019 -3.712 3.787c-2.199 -.088 -4.155 1.326 -4.666 3.373c-.512 2.047 .564 4.154 2.566 5.027" />
+        <rect x={8} y={15} width={8} height={5} rx={1} />
+        <path d="M10 15v-2a2 2 0 1 1 4 0v2" />
+        </svg>
+
+    )
+}

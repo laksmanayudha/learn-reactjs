@@ -28,9 +28,9 @@ const ChangePassword = (props) => {
     }, [])
 
     return (
-        <div className="p-10 container bg-white rounded">
+        <div className="p-6 container bg-white rounded">
             <h1 className="font-bold font-normal text-3xl">Change Password</h1>
-            <div className="p-10 w-3/4 mx-auto">
+            <div className="p-4 w-full mx-auto">
                 {(alert && changePasswordStatus) && <div className="mb-4"><SuccesAlert message="change password succes" /></ div>}
                 {(alert && (!changePasswordStatus)) && <div className="mb-4"><DangerAlert message="failed to change password" /></ div>}
 
