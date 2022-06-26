@@ -4,23 +4,23 @@ const Footer = () => {
             <div className="max-w-screen-xl mx-auto px-4">
                 <ul className="max-w-screen-md mx-auto text-lg font-light flex flex-wrap justify-between">
                 <li className="my-2">
-                    <a className="text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition-colors duration-200" href="#">
-                    FAQ
+                    <a className="text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition-colors duration-200" href="https://gitlab.com/laksmanayudha">
+                    Gilab
                     </a>
                 </li>
                 <li className="my-2">
-                    <a className="text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition-colors duration-200" href="#">
-                    Configuration
+                    <a className="text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition-colors duration-200" href="https://www.linkedin.com/in/laksmana-yudha-2b61801b9/">
+                    LinkedIn
                     </a>
                 </li>
                 <li className="my-2">
-                    <a className="text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition-colors duration-200" href="#">
+                    <a className="text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition-colors duration-200" href="https://github.com/laksmanayudha">
                     Github
                     </a>
                 </li>
                 <li className="my-2">
-                    <a className="text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition-colors duration-200" href="#">
-                    LinkedIn
+                    <a className="text-gray-400 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white transition-colors duration-200" href="https://www.instagram.com/laksmanayudha_/?hl=en">
+                    Instagram
                     </a>
                 </li>
                 </ul>
