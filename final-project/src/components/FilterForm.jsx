@@ -1,11 +1,15 @@
 import { useContext } from "react";
-import { Button } from "./Button";
+import { Button, ButtonDanger } from "./Button";
 import { InputFormData2 } from "./InputForm"
 import { JobContext } from "./JobProvider";
 
 const FilterForm = () => {
 
     const {state, handleFunction} = useContext(JobContext);
+    const {
+        setFilter,
+        filter
+    } = state
     let {
         handleSubmitFilter,
         handleFilterChange
@@ -28,13 +32,27 @@ const FilterForm = () => {
                 <div className="mt-6">
                 <div className="w-full space-y-6">
                     <form onSubmit={handleSubmitFilter}>
-                        <InputFormData2 type="text" name="company_name" placeholder="Company Name" handleFunction={handleFilterChange}/>
+                        <div>
+                            <label className="text-gray-500">Company Name</label>
+                            <InputFormData2 type="text" name="company_name" placeholder="Company Name" handleFunction={handleFilterChange} value={filter.company_name}/>
+                        </div>
                         <br />
-                        <InputFormData2 type="text" name="company_city" placeholder="Company City" handleFunction={handleFilterChange}/>
+                        <div>
+                            <label className="text-gray-500">Company City</label>
+                            <InputFormData2 type="text" name="company_city" placeholder="Company City" handleFunction={handleFilterChange} value={filter.company_city}/>
+                        </div>
                         <br />
-                        <InputFormData2 type="number" name="salary_min" placeholder="Minimal Salary" handleFunction={handleFilterChange}/>
+                        <div>
+                        <label className="text-gray-500">Minimal Salary</label>
+                            <InputFormData2 type="number" name="salary_min" placeholder="" handleFunction={handleFilterChange} value={filter.salary_min}/>
+                        </div>
                         <br />
                         <Button name="Find"/>
+
+                        {/* ini bisa reset, terus nampilin semua data karena buttonnya juga mentriger/mensubmit (type buttonnya 'submit') form, lalu mentriger event listener yang fetch data semuanya */}
+                        <div className="mt-2">
+                            <ButtonDanger name="Reset" handleFunction={() => {setFilter({...filter, company_city:" ", company_name:" ", salary_min:0})}}/>
+                        </div>
                     </form>
                 </div>
                 </div>

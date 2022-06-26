@@ -1,5 +1,5 @@
 import TableJobVacancy from "./TableJobVacancy";
-import { Button, ButtonNotFull } from "./Button";
+import { Button, ButtonDanger, ButtonNotFull, ButtonNotFullDanger } from "./Button";
 import SearchForm from "./SearchForm";
 import { InputFormData2, SelectForm } from "./InputForm";
 import { useHistory } from "react-router-dom";
@@ -18,6 +18,8 @@ const ListJobVacancy = () => {
         isDelete,
         companyCity,
         companyName,
+        setFilter,
+        filter
     } = state
 
     const {
@@ -34,16 +36,23 @@ const ListJobVacancy = () => {
             <div className="px-4">
                 <form onSubmit={handleSubmitFilter} className="flex flex-col md:flex-row justify-between items-center">
                     <div className="w-full">
-                        <SelectForm label="Company City" name="company_city" values={companyCity} handleFunction={handleFilterChange}/>
+                        <SelectForm label="Company City" name="company_city" values={companyCity} handleFunction={handleFilterChange} value={filter.company_city}/>
                     </div>
                     <div className="w-full">
-                        <SelectForm label="Company Name" name="company_name" values={companyName} handleFunction={handleFilterChange}/>
+                        <SelectForm label="Company Name" name="company_name" values={companyName} handleFunction={handleFilterChange} value={filter.company_name}/>
                     </div>
-                    <div className="w-full flex items-center">
-                        <label className="w-32">Min salary</label>
-                        <InputFormData2 type="number" name="salary_min" placeholder="Minimal Salary" handleFunction={handleFilterChange}/>
-                        <span className="mr-2"></span>
-                        <ButtonNotFull name="Filter" />
+                    <div className="w-full flex flex-col md:flex-row gap-2 items-center">
+                        <div className="w-full md:flex md:items-center">
+                            <label className="w-32">Min salary</label>
+                            <InputFormData2 type="number" name="salary_min" placeholder="Minimal Salary" handleFunction={handleFilterChange} value={filter.salary_min}/>
+                        </div>
+                        <div className="w-full ml-2 md:w-20">
+                            <Button name="Filter" />
+                        </div>
+                        {/* ini bisa reset, terus nampilin semua data karena buttonnya juga mentriger/mensubmit (type buttonnya 'submit') form, lalu mentriger event listener yang fetch data semuanya */}
+                        <div className="w-full ml-2 md:w-20">
+                            <ButtonDanger name="Reset" handleFunction={() => {setFilter({...filter, company_city:" ", company_name:" ", salary_min:0})}}/>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -58,9 +67,9 @@ const ListJobVacancy = () => {
             </div>
             <TableJobVacancy />
         </div>
-        {isCreate && <div className="fixed bottom-10 w-2/12"><SuccesAlert title="Success" message="success create data"/></div>}
-        {isUpdate && <div className="fixed bottom-10 w-2/12"><SuccesAlert title="Success" message="success updating data"/></div>}
-        {isDelete && <div className="fixed bottom-10 w-2/12"><DangerAlert title="Success" message="success deleting data"/></div>}
+        {isCreate && <div className="fixed bottom-4 w-2/12"><SuccesAlert title="Success" message="success create data"/></div>}
+        {isUpdate && <div className="fixed bottom-4 w-2/12"><SuccesAlert title="Success" message="success updating data"/></div>}
+        {isDelete && <div className="fixed bottom-4 w-2/12"><DangerAlert title="Success" message="success deleting data"/></div>}
     </div>
     )
 }

@@ -1,3 +1,7 @@
+import { useContext } from "react"
+import { JobContext } from "./JobProvider"
+import axios from "axios"
+
 export const HomeIcon = () => {
     return(
         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
@@ -73,9 +77,68 @@ export const ImageIcone = () => {
     )
 }
 
-export const SortIcon = () => {
+export const SortIcon = (props) => {
+
+    const {state, handleFunction} = useContext(JobContext);
+    const {ascending, setAscending, setDisplayedJob} = state;
+    const {cleanString} = handleFunction
+    const sortData = async () => {
+        let key = props.name;
+        
+        let result = await axios.get(`https://dev-example.sanbercloud.com/api/job-vacancy`);
+        let { data } = result.data;
+        let newData = data;
+
+        if(ascending){
+            for(let i = 0; i < newData.length; i++){
+                for(let j = i + 1; j < newData.length; j++){
+                    if(typeof(newData[i][key]) === "number"){
+                        if(newData[i][key] > newData[j][key]){
+                            let temp = newData[i];
+                            newData[i] = newData[j];
+                            newData[j] = temp;
+                        }
+                    }else{
+                        if(cleanString(newData[i][key]) > cleanString(newData[j][key])){
+                            let temp = newData[i];
+                            newData[i] = newData[j];
+                            newData[j] = temp;
+                        }
+                    }
+                }
+            }
+        }else{
+            for(let i = 0; i < newData.length; i++){
+                for(let j = i + 1; j < newData.length; j++){
+                    if(typeof(newData[i][key]) === "number"){
+                        if(newData[i][key] < newData[j][key]){
+                            let temp = newData[i];
+                            newData[i] = newData[j];
+                            newData[j] = temp;
+                        }
+                    }else{
+                        if(cleanString(newData[i][key]) < cleanString(newData[j][key])){
+                            let temp = newData[i];
+                            newData[i] = newData[j];
+                            newData[j] = temp;
+                        }
+                    }
+                }
+            }
+        }
+
+        setDisplayedJob(newData)
+    }
+
     return(
-    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-arrows-sort inline ml-2 cursor-pointer" width={15} height={15} viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-arrows-sort inline ml-2 cursor-pointer" width={15} height={15} viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round" onClick={() => {
+        if(ascending){
+            setAscending(false)
+        }else{
+            setAscending(true)
+        }
+        sortData();
+    }}>
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <path d="M3 9l4 -4l4 4m-4 -4v14" />
     <path d="M21 15l-4 4l-4 -4m4 4v-14" />

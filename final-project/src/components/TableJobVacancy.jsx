@@ -32,46 +32,46 @@ const TableJobVacancy = () => {
                 </th>
                 <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm text-sm font-normal text-gray-900 text-left">
                     Title
-                    <SortIcon />
+                    <SortIcon name="title"/>
                 </th>
                 <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
                     Description
-                    <SortIcon />
+                    <SortIcon name="job_description"/>
                 </th>
                 <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
                     Qualification
-                    <SortIcon />
+                    <SortIcon name="job_qualification"/>
                 </th>
                 <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
                     Type
-                    <SortIcon />
+                    <SortIcon name="job_type"/>
                 </th>
                 <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
                     Tenure
-                    <SortIcon />
+                    <SortIcon name="job_tenure"/>
                 </th>
                 <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
                     City
-                    <SortIcon />
+                    <SortIcon name="company_city"/>
                 </th>
                 <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
                     Status
-                    <SortIcon />
+                    <SortIcon name="job_status"/>
                 </th>
                 <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
                     Company Name
-                    <SortIcon />
+                    <SortIcon name="company_name"/>
                 </th>
                 <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
                     Company Image
                 </th>
                 <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
                     Min Salary
-                    <SortIcon />
+                    <SortIcon name="salary_min"/>
                 </th>
                 <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
                     Max Salary
-                    <SortIcon />
+                    <SortIcon name="salary_max"/>
                 </th>
                 <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
                     Action

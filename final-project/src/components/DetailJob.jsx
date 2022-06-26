@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Button } from "./Button";
 import { JobContext } from "./JobProvider";
 
 const DetailJob = (props) => {
@@ -28,6 +29,9 @@ const DetailJob = (props) => {
                     <div className="mt-2">{job.job_tenure}</div>
                     <div className="font-bold mt-2">{job.job_type}  . <span className="text-blue-500 font-normal">{isOpen(job.job_status)}</span></div>
                     <p className="font-bold text-xl mt-2">Rp {job.salary_min} - Rp {job.salary_max}</p>
+                    <div className="mt-4">
+                        <Button name="Apply" />
+                    </div>
                 </div>
             </div>
             <div className="p-4">

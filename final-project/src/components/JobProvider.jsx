@@ -14,6 +14,8 @@ export const JobProvider = (props) => {
     const [isCreate, setIsCreate]  = useState(false)
     const [isUpdate, setIsUpdate]  = useState(false)
     const [isDelete, setIsDelete]  = useState(false)
+    const [ascending, setAscending] = useState(false)
+
     const [job, setJob] = useState({
         company_city: "",
         company_image_url: "",
@@ -58,7 +60,6 @@ export const JobProvider = (props) => {
     ])
     const [companyCity, setCompanyCity] = useState(['Choose Option'])
     const [companyName, setCompanyName] = useState(['Choose Option'])
-    const [fillStatus, setFillStatus] = useState(0)
 
     const fetchJobData = async () => {
         try{
@@ -290,7 +291,7 @@ export const JobProvider = (props) => {
         isDelete, setIsDelete,
         companyCity, setCompanyCity,
         companyName, setCompanyName,
-        fillStatus, setFillStatus
+        ascending, setAscending
     }
 
     let handleFunction = {
@@ -299,7 +300,7 @@ export const JobProvider = (props) => {
         fetchJobData, isOpen, fetchDetailJobData,
         handleFormChange, handleSubmitForm,
         handleFormDelete, handleFormEdit,
-        fillInput
+        fillInput, cleanString
     }
 
     return(
