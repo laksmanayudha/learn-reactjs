@@ -1,20 +1,23 @@
+import { useContext } from "react";
+import { ProfileContext } from "./ProfileProvider";
+
 const Profile = (props) => {
+
+    const {userProfile} = useContext(ProfileContext)
+
     return(
         <div className="p-4 text-center">
             <div className="text-center mb-4 opacity-90">
                 <a href="#" className="block relative">
-                <img alt="profil" src={'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHVzZXJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'} className="mx-auto object-cover rounded-full h-40 w-40 " />
+                <img alt="profil" src={userProfile.image_url} className="mx-auto object-cover rounded-full h-40 w-40 " />
                 </a>
             </div>
             <div className="text-center">
                 <p className="text-2xl text-gray-800 dark:text-white">
-                Patrick Sebastien
-                </p>
-                <p className="text-xl text-gray-500 dark:text-gray-200 font-light">
-                Developpeur
+                {userProfile.name}
                 </p>
                 <p className="text-md text-gray-500 dark:text-gray-400 w-full py-4 font-light">
-                Patrick Sébastien, born November 14, 1953 in Brive-la-Gaillarde, is an imitator, humorist, actor, director, singer, songwriter, poet, writer
+                {userProfile.email}
                 </p>
             </div>
             <div className="pt-8 flex border-t border-gray-200 w-44 mx-auto text-gray-500 items-center justify-between">

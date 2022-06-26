@@ -27,7 +27,7 @@ export const InputFormData2 = (props) => {
     return (
     <div className="w-full">
         <div className=" relative ">
-            <input type={props.type} id={props.id} className=" rounded-lg border-inherit flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder={props.placeholder} autoComplete="" name={props.name} onChange={props.handleFunction} value={props.value}  />
+            <input type={props.type} id={props.id}  className=" rounded-lg border-inherit flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder={props.placeholder} autoComplete="" name={props.name} onChange={props.handleFunction} value={props.value}  />
         </div>
     </div>
     )
@@ -46,25 +46,20 @@ export const InputFormWithLabel = (props) => {
 
 export const SelectForm = (props) => {
     return(   
-        <>
-        <label className="text-gray-700 mr-4" htmlFor="">
-            {props.label}
-        </label>
-        <select id="" className="w-full md:w-52 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 mt-2" name={props.name} onChange={props.handleFunction} value={props.value} >
-            <option value="" defaultValue>
-                Select an option
-            </option>
-            <option value="dog">
-                Dog
-            </option>
-            <option value="cat">
-                Cat
-            </option>
-            <option value="hamster">
-                Hamster
-            </option>
-        </select>
-        </>
+        <div className="w-full mb-4">
+            <label className="text-gray-700 mr-4" htmlFor="">
+                {props.label}
+            </label>
+            <select id="" className="w-full md:w-52 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 mt-2" name={props.name} onChange={props.handleFunction} value={props.value} >
+                {props.values !== undefined && props.values.map(value => {
+                    return(
+                        <option value={value} key={value} selected={value == props.selected ? true : false}>
+                            {value}
+                        </option>
+                    )
+                })}
+            </select>
+        </div>
     )
 }
 
@@ -77,17 +72,20 @@ export const TextAreaForm = (props) => {
 }
 
 export const RadioForm = (props) => {
+    
     return(
-        <div className="mt-4">
+        <div className="">
             <label htmlFor="">{props.label}</label>
-            <div className="flex items-center my-4">
-                <input defaultChecked id="default-radio-1" type="radio" defaultValue name={props.name} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={props.handleFunction} value={props.value} />
-                <label htmlFor="default-radio-1" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{props.nameOne}</label>
-            </div>
-            <div className="flex items-center">
-                <input id="default-radio-2" type="radio" defaultValue name={props.name} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={props.handleFunction}value={props.value} />
-                <label htmlFor="default-radio-2" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" >{props.nameTwo}</label>
-            </div>
+            {props.values !== undefined && 
+                props.values.map(item => {
+                    return(
+                        <div className="flex items-center my-4" key={item.value}>
+                            <input checked={item.value == props.checked ? 1 : 0} type="radio" name={props.name} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" onChange={props.handleFunction} value={item.value}/>
+                            <label htmlFor="default-radio-1" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{item.title}</label>
+                        </div>
+                    )
+                })
+            }
         </div>
     )
 }

@@ -1,11 +1,14 @@
+import { useContext } from "react";
 import DashboardCard from "./DashboardCard";
+import { ProfileContext } from "./ProfileProvider";
 
 const Dashboard = () => {
 
+    const {userProfile} = useContext(ProfileContext)
 
     return(
        <div className="p-4 font-bold text-4xl">
-        Hello, {""}!!
+        Hello, {userProfile.name}!!
             <div className="grid md:grid-cols-2 lg:grid-cols-3 mt-6 gap-4">
                 <DashboardCard name="Dashboard" to="/dashboard" description="New information is available here." buttondesc="Get started"/>
                 <DashboardCard name="Profile" to="/dashboard/profile" description="Check your profile by clicking this card." buttondesc="My profile"/>

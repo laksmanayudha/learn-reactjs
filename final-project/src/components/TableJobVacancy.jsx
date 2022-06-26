@@ -1,153 +1,141 @@
+import { useContext, useEffect } from "react";
 import { ButtonNotFull, ButtonNotFullDanger } from "./Button";
+import { JobContext } from "./JobProvider";
 import { DeleteIcon, EditIcon, SortIcon } from "./SVGIcons";
 
 const TableJobVacancy = () => {
+
+    const { state, handleFunction } = useContext(JobContext);
+    const {displayedJob, fetchStatus, setFetchStatus} = state
+    const {fetchJobData, isOpen, handleFormDelete, handleFormEdit} = handleFunction
+
+    const excerpt = (text) => {
+        text = text.split(" ").splice(0, 5).join(" ") + " ..."
+        return text
+    }
+
+    useEffect(() => {
+        
+        if(fetchStatus){
+            fetchJobData();
+            setFetchStatus(false);
+        }
+        
+    }, [fetchStatus])
+
     return(
         <table className="table bg-white shadow rounded-lg w-full">
             <thead>
                 <tr>
-                <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
+                <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
                     #
                 </th>
-                <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap text-sm text-sm font-normal text-gray-900 text-left">
+                <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm text-sm font-normal text-gray-900 text-left">
                     Title
                     <SortIcon />
                 </th>
-                <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
+                <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
                     Description
                     <SortIcon />
                 </th>
-                <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
+                <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
                     Qualification
                     <SortIcon />
                 </th>
-                <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
+                <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
                     Type
                     <SortIcon />
                 </th>
-                <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
+                <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
                     Tenure
                     <SortIcon />
                 </th>
-                <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
-                    Stetus
+                <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
+                    City
                     <SortIcon />
                 </th>
-                <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
+                <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
+                    Status
+                    <SortIcon />
+                </th>
+                <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
                     Company Name
                     <SortIcon />
                 </th>
-                <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
+                <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
                     Company Image
                 </th>
-                <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
+                <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
                     Min Salary
                     <SortIcon />
                 </th>
-                <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
+                <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
                     Max Salary
                     <SortIcon />
                 </th>
-                <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
+                <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
                     Action
                 </th>
                 </tr>
             </thead>
             <tbody>
-                <tr className="text-gray-700">
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        1
-                    </td>
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        Jean Marc
-                    </td>
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        Louis
-                    </td>
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        Jl987
-                    </td>
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        Jl987
-                    </td>
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        Jl987
-                    </td>
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        Jl987
-                    </td>
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        Jl987
-                    </td>
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        Jl987
-                    </td>
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        Jl987
-                    </td>
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        Jl987
-                    </td>
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        <div>
-                            <ButtonNotFull>
-                                <EditIcon />
-                            </ButtonNotFull>
-                        </div>
-                        <div className="mt-1">
-                            <ButtonNotFullDanger>
-                                <DeleteIcon />
-                            </ButtonNotFullDanger>
-                        </div>
-                    </td>
-                </tr>             
-                <tr className="text-gray-700">
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        1
-                    </td>
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        Jean Marc
-                    </td>
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        Louis
-                    </td>
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        Jl987
-                    </td>
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        Jl987
-                    </td>
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        Jl987
-                    </td>
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        Jl987
-                    </td>
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        Jl987
-                    </td>
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        Jl987
-                    </td>
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        Jl987
-                    </td>
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        Jl987
-                    </td>
-                    <td className="border-b-2 p-4 dark:border-dark-5 text-sm">
-                        <div>
-                            <ButtonNotFull>
-                                <EditIcon />
-                            </ButtonNotFull>
-                        </div>
-                        <div className="mt-1">
-                            <ButtonNotFullDanger>
-                                <DeleteIcon />
-                            </ButtonNotFullDanger>
-                        </div>
-                    </td>
-                </tr>             
+                {displayedJob !== undefined &&
+                    displayedJob.map((item, index) => {
+                        return(
+                            <tr className="text-gray-700" key={item.id}>
+                                <td className="border-b-2 p-1 dark:border-dark-5 text-sm">
+                                    {index + 1}
+                                </td>
+                                <td className="border-b-2 p-1 dark:border-dark-5 text-sm">
+                                    {item.title}
+                                </td>
+                                <td className="border-b-2 p-1 dark:border-dark-5 text-sm">
+                                    {excerpt(item.job_description)}
+                                </td>
+                                <td className="border-b-2 p-1 dark:border-dark-5 text-sm">
+                                    {excerpt(item.job_qualification)}
+                                </td>
+                                <td className="border-b-2 p-1 dark:border-dark-5 text-sm">
+                                    {item.job_type}
+                                </td>
+                                <td className="border-b-2 p-1 dark:border-dark-5 text-sm">
+                                    {item.job_tenure}
+                                </td>
+                                <td className="border-b-2 p-1 dark:border-dark-5 text-sm">
+                                    {item.company_city}
+                                </td>
+                                <td className="border-b-2 p-1 dark:border-dark-5 text-sm">
+                                    <span className={`bg-${item.job_status === 1 ? 'blue' : 'rose'}-600 text-white p-2 rounded-2xl`}>{isOpen(item.job_status)}</span>
+                                </td>
+                                <td className="border-b-2 p-1 dark:border-dark-5 text-sm">
+                                    {item.company_name}
+                                </td>
+                                <td className="border-b-2 p-1 dark:border-dark-5 text-sm">
+                                    <img src={item.company_image_url} alt="" />
+                                </td>
+                                <td className="border-b-2 p-1 dark:border-dark-5 text-sm">
+                                    {item.salary_min}
+                                </td>
+                                <td className="border-b-2 p-1 dark:border-dark-5 text-sm">
+                                    {item.salary_max}
+                                </td>
+                                <td className="border-b-2 p-1 dark:border-dark-5 text-sm">
+                                    <div>
+                                        <ButtonNotFull handleFunction={handleFormEdit} value={item.id}>
+                                            <EditIcon />
+                                        </ButtonNotFull>
+                                    </div>
+                                    <div className="mt-1">
+                                        <ButtonNotFullDanger handleFunction={handleFormDelete} value={item.id}>
+                                            <DeleteIcon />
+                                        </ButtonNotFullDanger>
+                                    </div>
+                                </td>
+                            </tr>
+                        )
+                    })
+                } 
+                         
             </tbody>
         </table>
 

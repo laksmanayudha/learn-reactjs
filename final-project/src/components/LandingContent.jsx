@@ -5,7 +5,7 @@ import Hero from "./Hero";
 const LandingContent = () => {
     return(
         <>
-            <section>
+            <section className="md:mt-20">
                 <Hero />
             </section>
             <hr className="my-7" />

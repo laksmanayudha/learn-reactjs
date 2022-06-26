@@ -47,7 +47,7 @@ export const SearchIcon = () => {
     )
 }
 
-export const SortIcon = () => {
+export const UpIcon = () => {
     return(
         <svg className="inline ml-2 cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.2 7.8l-7.7 7.7-4-4-5.7 5.7"/><path d="M15 7h6v6"/></svg>
 
@@ -70,5 +70,15 @@ export const ImageIcone = () => {
     return(
         <svg xmlns="http://www.w3.org/2000/svg" width={15} height={15} viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><rect x={3} y={3} width={18} height={18} rx={2} /><circle cx="8.5" cy="8.5" r="1.5" /><path d="M20.4 14.5L16 10 4 20" /></svg>
 
+    )
+}
+
+export const SortIcon = () => {
+    return(
+    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-arrows-sort inline ml-2 cursor-pointer" width={15} height={15} viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M3 9l4 -4l4 4m-4 -4v14" />
+    <path d="M21 15l-4 4l-4 -4m4 4v-14" />
+    </svg>
     )
 }

@@ -1,13 +1,17 @@
 import SidebarItem from "./SidebarItem";
 import logo from "../YuKerja_logo.png"
 import { HomeIcon, PasswordIcon, ProfileIcon, TableIcon } from "./SVGIcons";
+import { useHistory } from "react-router-dom";
 
 const Sidebar = () => {
+
+    const history = useHistory();
+
     return(
         <div className="h-screen hidden lg:block my-4 ml-4 shadow-lg relative w-80">
             <div className="bg-white h-full rounded-2xl dark:bg-gray-700">
                 <div className="flex items-center justify-center pt-6">
-                    <img src={logo} alt="Yuk Kerja Logo" className="w-1/3"/>
+                    <img src={logo} alt="Yuk Kerja Logo" className="w-1/3" onClick={() => history.push("/")}/>
                 </div>
                 <nav className="mt-6">
                     <div>

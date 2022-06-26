@@ -1,7 +1,16 @@
+import { useContext } from "react";
 import { Button } from "./Button";
 import { InputFormData2 } from "./InputForm"
+import { JobContext } from "./JobProvider";
 
 const FilterForm = () => {
+
+    const {state, handleFunction} = useContext(JobContext);
+    let {
+        handleSubmitFilter,
+        handleFilterChange
+    } = handleFunction
+
     return (
         <div className="bg-white rounded-lg shadow sm:max-w-md sm:w-full sm:mx-auto sm:overflow-hidden">
             <div className="px-4 py-8 sm:px-10">
@@ -18,10 +27,15 @@ const FilterForm = () => {
                 </div>
                 <div className="mt-6">
                 <div className="w-full space-y-6">
-                    <InputFormData2 type="text" name="company_city" placeholder="Company City" />
-                    <InputFormData2 type="text" name="company_name" placeholder="Company Name" />
-                    <InputFormData2 type="text" name="salary_min" placeholder="Minimal Salary" />
-                    <Button name="Find"/>
+                    <form onSubmit={handleSubmitFilter}>
+                        <InputFormData2 type="text" name="company_name" placeholder="Company Name" handleFunction={handleFilterChange}/>
+                        <br />
+                        <InputFormData2 type="text" name="company_city" placeholder="Company City" handleFunction={handleFilterChange}/>
+                        <br />
+                        <InputFormData2 type="number" name="salary_min" placeholder="Minimal Salary" handleFunction={handleFilterChange}/>
+                        <br />
+                        <Button name="Find"/>
+                    </form>
                 </div>
                 </div>
             </div>

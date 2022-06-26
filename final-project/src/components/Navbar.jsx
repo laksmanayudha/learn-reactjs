@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import YuKerjaLogo from "../YuKerja_logo.png"
 import NavbarMenuItem from "./NavbarMenuItem";
 
@@ -24,10 +25,20 @@ const Navbar = () => {
                             <NavbarMenuItem name="Job Vacancy" to="/job-vacancy"/>
                         </li>
                         <li>
-                            <NavbarMenuItem name="Sign up" to="/signup"/>
+                            
+                            {Cookies.get('token') !== undefined && Cookies.get('user') !== undefined ? 
+                                <span></span>
+                                : 
+                                <NavbarMenuItem name="Sign up" to="/signup"/>
+                            }
                         </li>
                         <li>
-                            <NavbarMenuItem name="Login" to="/login" isButton />
+                            {Cookies.get('token') !== undefined && Cookies.get('user') !== undefined ? 
+                                <NavbarMenuItem name="Dashboard" to="/dashboard"/>
+                                : 
+                                <NavbarMenuItem name="Login" to="/login" isButton />
+                            }
+                            
                         </li>
                     </ul>
                     </div>
