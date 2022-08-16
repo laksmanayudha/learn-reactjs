@@ -24,7 +24,8 @@ const TableJobVacancy = () => {
     }, [fetchStatus])
 
     return(
-        <table className="table bg-white shadow rounded-lg w-full">
+    <div className="overflow-x-auto shadow rounded-lg p-8">
+        <table className="table bg-white">
             <thead>
                 <tr>
                 <th className="border-b-2 px-2 py-2 dark:border-dark-5 whitespace-nowrap text-sm font-normal text-gray-900 text-left">
@@ -138,7 +139,7 @@ const TableJobVacancy = () => {
                          
             </tbody>
         </table>
-
+    </div>           
     )
 }
 
